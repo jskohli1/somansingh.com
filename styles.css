@@ -55,11 +55,16 @@ button{font:inherit}
 .page-heading h2{margin:0;font-family:"Andika",sans-serif;font-size:50px;font-weight:600;line-height:1;letter-spacing:2.5px;text-align:center}
 .about-heading{background-image:url("assets/images/about-heading-bg.jpg")}
 .about-content{display:grid;grid-template-columns:1fr 1fr;align-items:start;padding-top:100px;padding-bottom:100px}
+.about-profile{min-width:0}
 .about-image{display:flex;justify-content:center;padding:0 50px}.about-image img{width:min(100%,400px);height:auto;opacity:.9}
+.about-details{width:min(100%,400px);margin:28px auto 0;text-align:center}
+.about-details h3{margin:0 0 16px;font-family:"Andika",sans-serif;font-size:20px;font-weight:400;letter-spacing:.5px}
+.skill-list{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0;padding:0;list-style:none}
+.skill-list li{padding:6px 10px;color:#d6d6d6;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.16);border-radius:50px;font-size:11px;line-height:1.25;letter-spacing:.35px}
 .about-copy{padding-right:20px}
 .about-copy h3{margin:10px 20px 12px 0;font-family:"Andika",sans-serif;font-size:24px;font-weight:400}
 .about-copy p{margin:0 0 1em;font-family:"Andika",sans-serif;font-size:16px;font-weight:400;line-height:1.65}
-.about-email{padding:20px 20px 20px 0}.about-email:hover,.about-email:focus-visible{color:#00c6ff}
+.about-email{margin-top:20px;padding:12px 18px}.about-email:hover,.about-email:focus-visible{color:#00c6ff}
 
 .contact-heading{background-image:url("assets/images/contact-heading-bg.jpg");background-position:center}
 .contact-content{padding-top:100px;padding-bottom:100px;text-align:center}
