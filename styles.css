@@ -19,17 +19,17 @@ button{font:inherit}
 .site-header{position:fixed;inset:0 0 auto;z-index:20;min-height:90px;background:rgba(0,0,0,.72);border-bottom:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .main-nav{display:flex;min-height:90px;align-items:center;justify-content:center}
 .main-nav a{display:flex;min-height:70px;align-items:center;padding:0 1em;color:#e7e7e7;font-size:15px;font-weight:500;transition:color 200ms ease}
-.main-nav a:hover,.main-nav a:focus-visible,.main-nav a[aria-current="page"]{color:#fff}
+.main-nav a:hover,.main-nav a:focus-visible{color:#fff}
 .menu-toggle{display:none}
 
 .hero{position:relative;display:grid;min-height:100vh;place-items:center;overflow:hidden;padding:120px 20px 50px}
 .hero-slideshow,.hero-slide{position:absolute;inset:0}
 .hero-slideshow{background:#050505}
-.hero-slide{background-position:center;background-size:cover;opacity:0;transform:scale(1);will-change:opacity,transform}
+.hero-slide{background-position:center;background-size:cover;opacity:0;transform:scale(1)}
 .hero-slide:first-child{background-image:url("assets/images/hero-01.jpg")}
 .hero-slide.is-active{opacity:1}
 .hero-content{position:relative;z-index:4;width:min(100%,700px);text-align:center}
-.hero-content h2{margin:0 0 8px;font-family:"Andika",sans-serif;font-size:22px;font-weight:400;text-transform:none}
+.hero-content .hero-intro{margin:0 0 8px;font-family:"Andika",sans-serif;font-size:22px;font-weight:400;line-height:1.5;text-transform:none}
 .hero-content h1{margin:0 0 20px;font-family:"Josefin Sans",sans-serif;font-size:65px;font-weight:400;line-height:1.1;letter-spacing:10px;text-transform:uppercase}
 .hero-content p{margin:0;font-family:"Andika",sans-serif;font-size:28px;font-weight:400;line-height:1.2;text-transform:capitalize}
 .pattern-divider{width:76px;height:18px;margin:19px auto 7px;background-image:radial-gradient(circle,#fff 2px,transparent 2.3px);background-position:center;background-size:12px 12px}
@@ -59,11 +59,11 @@ button{font:inherit}
 .contact-intro{max-width:1000px;margin:0 auto 40px;padding:0 100px;font-family:"Andika",sans-serif;font-size:20px;font-weight:400;line-height:31px}
 .contact-group{margin-bottom:45px}.contact-group:last-child{margin-bottom:0}
 .contact-group h3{margin:0 0 12px;font-size:26px;font-weight:600}
-.contact-group a{display:inline-flex;align-items:center;gap:10px;transition:color 200ms ease}
+.contact-group a{display:inline-flex;min-height:44px;align-items:center;gap:10px;transition:color 200ms ease}
 .contact-group a:hover,.contact-group a:focus-visible{color:#bb00ff}
 .contact-group svg{width:30px;height:30px;fill:currentColor}
 
-.home-cta{position:relative;padding:100px 0 50px;text-align:center;background:#000 url("assets/images/cta-bg.jpg") center/cover fixed}
+.home-cta{position:relative;padding:100px 0 50px;text-align:center;background:#000}
 .home-cta::before{position:absolute;inset:0;content:"";background:#000}
 .home-cta .content-container{position:relative;z-index:1;max-width:600px}
 .home-cta h2{margin:0;font-family:"Andika",sans-serif;font-size:28px;font-weight:400;line-height:1.2}
@@ -71,9 +71,9 @@ button{font:inherit}
 
 .site-footer{background:#000}
 .footer-social{display:flex;min-height:110px;align-items:center;justify-content:center;gap:16px;padding:40px 30px}
-.footer-social a{display:grid;width:32px;height:32px;place-items:center;transition:opacity 200ms ease}
+.footer-social a{display:grid;width:44px;height:44px;place-items:center;transition:opacity 200ms ease}
 .footer-social svg{width:28px;height:28px;fill:currentColor}.footer-social a:nth-child(1){color:#1b64f6}.footer-social a:nth-child(2){color:#1c86c6}.footer-social a:nth-child(3){color:#5bba67}.footer-social a:nth-child(4){color:#ea4335}
-.footer-social a:hover{opacity:.72}
+.footer-social a:hover,.footer-social a:focus-visible{opacity:.72}
 .copyright{min-height:61px;padding:20px 30px;border-top:1px solid #dbe8eb;font-size:14px;text-align:center}
 
 @media(max-width:921px){
@@ -92,7 +92,7 @@ button{font:inherit}
   .contact-content{padding:70px 30px;text-align:left}.contact-intro{padding:0;font-size:14px;line-height:1.8}.contact-group h3{font-size:24px}
   .home-cta{padding:50px 30px;background-attachment:scroll}.footer-social{min-height:90px;padding:25px 30px}
 }
-@media(max-width:460px){.hero-content h2{font-size:18px}.hero-content h1{font-size:40px;letter-spacing:7px}.hero-content p{font-size:17px}.copyright{font-size:12px}}
+@media(max-width:460px){.hero-content .hero-intro{font-size:18px}.hero-content h1{font-size:40px;letter-spacing:7px}.hero-content p{font-size:17px}.copyright{font-size:12px}}
 section,#about-content{scroll-margin-top:90px}
 @media(max-width:921px){section,#about-content{scroll-margin-top:70px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

@@ -22,12 +22,25 @@ let zoomingIn = true;
 let sequenceVersion = 0;
 let heroIsVisible = true;
 const controlledAnimations = new Set();
-const preloadedImages = heroImages.map((source) => {
+
+function prepareImage(index) {
   const image = new Image();
-  image.src = source;
-  const ready = typeof image.decode === "function" ? image.decode().catch(() => undefined) : Promise.resolve();
-  return { image, ready };
-});
+  image.decoding = "async";
+  image.fetchPriority = "low";
+  image.src = heroImages[index];
+  const ready = typeof image.decode === "function"
+    ? image.decode().catch(() => undefined)
+    : new Promise((resolve) => {
+        if (image.complete) resolve();
+        else {
+          image.addEventListener("load", resolve, { once: true });
+          image.addEventListener("error", resolve, { once: true });
+        }
+      });
+  return { index, image, ready };
+}
+
+let preparedImage = heroImages.length > 1 ? prepareImage(1) : null;
 
 function updatePlaybackState() {
   const shouldPlay = heroIsVisible && !document.hidden;
@@ -94,7 +107,10 @@ async function runSlideshow(version) {
 
     currentScale = targetScale;
     imageIndex = (imageIndex + 1) % heroImages.length;
-    await preloadedImages[imageIndex].ready;
+    if (!preparedImage || preparedImage.index !== imageIndex) {
+      preparedImage = prepareImage(imageIndex);
+    }
+    await preparedImage.ready;
     if (version !== sequenceVersion) return;
 
     const incomingLayer = activeLayer === 0 ? 1 : 0;
@@ -106,6 +122,7 @@ async function runSlideshow(version) {
     incoming.style.zIndex = "2";
     outgoing.style.zIndex = "1";
     incoming.classList.add("is-active");
+    preparedImage = prepareImage((imageIndex + 1) % heroImages.length);
 
     if (!(await dissolve(outgoing, incoming, version))) return;
     outgoing.classList.remove("is-active");
