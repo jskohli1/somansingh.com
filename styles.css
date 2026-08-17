@@ -54,16 +54,15 @@ button{font:inherit}
 .page-heading{display:grid;min-height:350px;place-items:center;padding:200px 20px 100px;background-position:top center;background-size:cover;background-attachment:fixed}
 .page-heading h2{margin:0;font-family:"Andika",sans-serif;font-size:50px;font-weight:600;line-height:1;letter-spacing:2.5px;text-align:center}
 .about-heading{background-image:url("assets/images/about-heading-bg.jpg")}
-.about-content{display:grid;grid-template-columns:1fr 1fr;align-items:start;padding-top:100px;padding-bottom:100px}
-.about-profile{min-width:0}
-.about-image{display:flex;justify-content:center;padding:0 50px}.about-image img{width:min(100%,400px);height:auto;opacity:.9}
-.about-details{width:min(100%,400px);margin:28px auto 0;text-align:center}
+.about-content{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"portrait copy" "details copy";align-items:start;padding-top:100px;padding-bottom:100px}
+.about-image{grid-area:portrait;display:flex;justify-content:center;padding:0 50px}.about-image img{width:min(100%,400px);height:auto;opacity:.9}
+.about-details{grid-area:details;width:min(100%,400px);margin:28px auto 0;text-align:center}
 .skill-list{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0;padding:0;list-style:none}
 .skill-list li{padding:6px 10px;color:#d6d6d6;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.16);border-radius:50px;font-size:11px;line-height:1.25;letter-spacing:.35px}
-.about-copy{padding-right:20px}
+.about-copy{grid-area:copy;padding-right:20px}
 .about-copy h3{margin:10px 20px 12px 0;font-family:"Andika",sans-serif;font-size:24px;font-weight:400}
 .about-copy p{margin:0 0 1em;font-family:"Andika",sans-serif;font-size:16px;font-weight:400;line-height:1.65}
-.about-email{margin-top:20px;padding:12px 18px}.about-email:hover,.about-email:focus-visible{color:#00c6ff}
+.about-email{margin-top:calc(20px + 1em);padding:14px 22px;color:#000;background:#fff;border:1px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.28);transition:color 200ms ease,background-color 200ms ease,border-color 200ms ease,transform 200ms ease}.about-email:hover,.about-email:focus-visible{color:#000;background:#00c6ff;border-color:#00c6ff;transform:translateY(-2px)}
 
 .contact-heading{background-image:url("assets/images/contact-heading-bg.jpg");background-position:center}
 .contact-content{padding-top:100px;padding-bottom:100px;text-align:center}
@@ -97,7 +96,7 @@ button{font:inherit}
   .about-content{padding:50px}.about-image{padding:0 25px}
 }
 @media(max-width:767px){
-  .work-grid,.about-content{grid-template-columns:1fr}.work-grid{gap:34px}.featured-work h2{font-size:36px}
+  .work-grid,.about-content{grid-template-columns:1fr}.about-content{grid-template-areas:"portrait" "copy" "details"}.work-grid{gap:34px}.featured-work h2{font-size:36px}
   .page-heading{min-height:230px;padding:140px 30px 60px;background-attachment:scroll}.page-heading h2{font-size:30px}
   .about-content{width:100%;padding:50px 30px}.about-image{padding:0}.about-copy{padding:30px 0 0}
   .contact-content{padding:70px 30px;text-align:left}.contact-intro{padding:0;font-size:14px;line-height:1.8}.contact-group h3{font-size:24px}
